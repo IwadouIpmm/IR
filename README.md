@@ -9,7 +9,8 @@ Currently not finished. The only missing implementation is its query processing.
 Fully implemented. The phrase (free) done using Positional Index Model.
 
 # Query Processing
-Query processing is done using Proximity Algorithm.
+The query is being processed as a proximity query when using phrase (free) model.
+The query is being processed as a boolean query when using boolean model.
 
 # Links
 You need to download a c compiler on windows in order to build the software on your machine and run it.
