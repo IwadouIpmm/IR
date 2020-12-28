@@ -11,6 +11,4 @@ gcc -Wall -Werror -o../IR main.c ../bin/string.o ../bin/common.o ../bin/mps.o
 cd ../
 pause
 cls
-IR.exe
-pause
-cls
+start IR.exe
