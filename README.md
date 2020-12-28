@@ -16,4 +16,5 @@ You need to download a c compiler on windows in order to build the software on y
 I recommend downloading tdm-gcc: https://jmeubank.github.io/tdm-gcc/download/
 
 # How to run the software
-Use the file compile_main.bat just once and then you can run the IR.exe at any time.
+Use the file compile_main.bat for the first time. It will compile the software and run it.
+After that use IR.exe as you're main executable file.
