@@ -3,7 +3,7 @@ This Information Retrieval (IR) project implements Boolean model and Phrase (fre
 This Software is developed using C99 programming language. Developed on Windows and can only be run on windows as the software is using Windows APIs <windows.h>
 
 # Boolean Model
-Currently not finished. The only missing implementation is the its query processing.
+Currently not finished. The only missing implementation is its query processing.
 
 # Phrase (free) Model
 Fully implemented. The phrase (free) done using Positional Index Model.
