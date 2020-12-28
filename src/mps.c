@@ -1267,6 +1267,10 @@ unsigned int * process_query (string * query, mps * _mps, unsigned int * mps_siz
                         if ((*terms_size) == 1) { //Checks if after removal of stop word the length is 1
                             _return_ = get_posting_of (_mps, mps_size, n_docs, terms [0]);
 
+                            if (_return_ != NULL) {
+                                sort_query_result (_return_, &terms, terms_size, _mps, mps_size, _tfidf, doc_tokens, n_docs, n_tokens_per_doc);
+                            }
+
                             //Free the list
                             free (terms [0]);
                             terms [0] = NULL;
@@ -1593,8 +1597,13 @@ unsigned int * process_query (string * query, mps * _mps, unsigned int * mps_siz
                                 terms_size = NULL;
                             }
                         }
-                    } else//Means the query contains only one word
+                    } else { //Means the query contains only one word
                         _return_ = get_posting_of (_mps, mps_size, n_docs, (*query)); //Get the posting list of that term
+                        if (_return_ != NULL) {
+                            unsigned int length = 1;
+                            sort_query_result (_return_, &query, &length, _mps, mps_size, _tfidf, doc_tokens, n_docs, n_tokens_per_doc);
+                        }
+                    }
                 } else { //Means we using boolean model.
                 
                 }
