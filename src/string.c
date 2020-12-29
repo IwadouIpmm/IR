@@ -200,7 +200,6 @@ void *** str_word_split (string * _string, string spliter) {
 							do {split_size = (unsigned int *) malloc (sizeof (unsigned int));} while (split_size == NULL);
 							(*split_size) = (indices [0] / 2) + 1;
 							
-							
 							string * split = NULL;
 							do {split = (string *) malloc (sizeof (string) * ((*split_size) + 1));} while (split == NULL);
 
@@ -208,16 +207,18 @@ void *** str_word_split (string * _string, string spliter) {
 
 							_string_size = 0;
 
-							//1  2  3  .
-							//[6-1-2-4-5-7-8]
+							//v  w  x  y  z.
+							//[6-1-2-4-5-7-8-10-11]
+							unsigned int inc = 2;
 							for (; _string_size < (*split_size); ++_string_size) {
 								if (_string_size == 0) {
 									split [(_string_size + 1)] = substring (_string, 0, (indices [1] - 1));
 								} else {
 									if ((_string_size + 1) == (*split_size)) {
-										split [(_string_size + 1)] = substring (_string, (indices [(_string_size + 1)] + 2), (str_len (_string) - 1));
+										split [(_string_size + 1)] = substring (_string, (indices [indices [0]] + 1), (str_len (_string) - 1));
 									} else {
-										split [(_string_size + 1)] = substring (_string, (indices [(_string_size + 1)] + 1), (indices [(_string_size + 2)] - 1));
+										split [(_string_size + 1)] = substring (_string, (indices [inc] + 1), (indices [(inc + 1)] - 1));
+										inc += 2;
 									}
 								}
 							}
@@ -5973,7 +5974,7 @@ unsigned int * indices_of_word (string * _string, string word) {
 				do {temp = (string) malloc (sizeof (char) * (word_size + 1));} while (temp == NULL);
 				temp [word_size] = '\0';
 				
-				//1  2  .
+				//1  2  3  4.
 				unsigned int counter = 0;
 				while (counter < (_string_size - word_size + 1)) {
 					for (unsigned int inside = 0; inside < word_size; ++inside) {

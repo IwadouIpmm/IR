@@ -359,7 +359,7 @@ _Bool positional_index (char * option) {
                 SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 7);
                 printf ("] is: ");
                 SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 9);
-                printf ("%s\n", documents [counter][inside]);
+                printf ("%s\n\n", documents [counter][inside]);
                 SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 7);
             }
 
